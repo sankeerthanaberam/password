@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.password-adding-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.password-manager-logo {
+  height: 90px;
+  width: 200px;
+}
+
+.password-manager-image {
+  height: 45vh;
+  width: 30vw;
+}
+
+.website-logo {
+  height: 35px;
+  width: 30px;
+}
+
+.display-row {
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+}
+
+button {
+  background-color: #0b69ff;
+  color: #f8fafc;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100px;
+  border-width: 0px;
+}
+
+.display-btn-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+}
+
+.website-input {
+  padding: 18px;
+  width: 40vw;
+}
+
+.website-logo-container {
+  background-color: #f8fafc;
+  width: 4vw;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.password-adding-container {
+  background-color: #5763a5;
+  width: 90vw;
+  color: #f8fafc;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.new-password-heading {
+  font-size: 20px;
+  width: 50vw;
+}
+
+.password-entering-box {
+  background-color: #454f84;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.password-manager-container {
+  background-image: linear-gradient(#9ba9eb, #c3caea);
+  height: 100vh;
+  padding-top: 50px;
+  padding-left: 80px;
+}

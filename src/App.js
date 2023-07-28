@@ -4,8 +4,16 @@ import {v4 as uuidv4} from 'uuid'
 
 import './App.css'
 
+import InformationItem from './InformationItem'
+
 class App extends Component {
-  state = {websiteName: '', password: '', userName: '', InformationList: []}
+  state = {
+    websiteName: '',
+    password: '',
+    userName: '',
+    InformationList: [],
+    websiteSearch: '',
+  }
 
   onChangeWebsite = event => {
     this.setState({websiteName: event.target.value})
@@ -19,10 +27,19 @@ class App extends Component {
     this.setState({userName: event.target.value})
   }
 
+  deleteItem = id => {
+    const {InformationList} = this.state
+    const filteredData = InformationList.filter(
+      eachObject => eachObject.id !== id,
+    )
+
+    this.setState({InformationList: filteredData})
+  }
+
   addInformation = event => {
     event.preventDefault()
 
-    const {websiteName, password, userName, InformationList} = this.state
+    const {websiteName, password, userName} = this.state
 
     const newContent = {
       id: uuidv4(),
@@ -37,13 +54,27 @@ class App extends Component {
       password: '',
       userName: '',
     }))
+  }
 
-    console.log(newContent)
-    console.log(InformationList)
+  onChangeSearch = event => {
+    this.setState({websiteSearch: event.target.value})
   }
 
   render() {
-    const {websiteName, password, userName} = this.state
+    const {
+      websiteName,
+      password,
+      userName,
+      InformationList,
+      websiteSearch,
+    } = this.state
+    console.log(InformationList)
+    const searchPasswords = InformationList.filter(eachInformation =>
+      eachInformation.websiteName
+        .toLowerCase()
+        .includes(websiteSearch.toLowerCase()),
+    )
+
     return (
       <div className="password-manager-container">
         <img
@@ -113,6 +144,54 @@ class App extends Component {
             alt="password manager"
             className="password-manager-image"
           />
+        </div>
+        <div className="password-showing-container">
+          <div className="search-count-password-container">
+            <div className="display-row">
+              <h1 className="password-heading">Your Passwords</h1>
+              <p type="button" className="no-of-passwords">
+                {InformationList.length}
+              </p>
+            </div>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/password-manager-search-img.png"
+              alt="search"
+            />
+            <input
+              type="search"
+              value={websiteSearch}
+              placeholder="Search"
+              onChange={this.onChangeSearch}
+              className="search-website-input"
+            />
+          </div>
+          <hr />
+          <div className="list-of-passwords">
+            <div className="display-end">
+              <input type="checkbox" id="checkBox" />
+              <label htmlFor="checkBox">Show Passwords</label>
+            </div>
+            {InformationList.length === 0 ? (
+              <div className="display-center">
+                <img
+                  src="https://assets.ccbp.in/frontend/react-js/no-passwords-img.png"
+                  alt="no passwords"
+                  className="nopassword-img"
+                />
+                <p>No Passwords</p>
+              </div>
+            ) : (
+              <ul>
+                {searchPasswords.map(eachObject => (
+                  <InformationItem
+                    key={eachObject.id}
+                    InformationDetails={eachObject}
+                    deleteItem={this.deleteItem}
+                  />
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </div>
     )

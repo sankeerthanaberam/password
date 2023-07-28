@@ -16,9 +16,67 @@ body {
   flex-direction: row;
 }
 
+.no-of-passwords {
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid #f8fafc;
+  height: 35px;
+  width: 30px;
+  text-align: center;
+  padding-bottom: 7px;
+  margin: 15px;
+}
+
+
+.display-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-self: right;
+  color: #f8fafc;
+  font-weight: 600;
+}
+.password-heading {
+  font-size: 25px;
+  color: #f8fafc;
+}
+
+.search-website-input {
+  width: 300px;
+  height: 30px;
+  margin: 20px;
+}
+
+.password-showing-container {
+  background-color: #5763a5;
+  border-radius: 15px;
+  margin-top: 20px;
+  width: 90vw;
+  padding: 20px;
+}
+
+.search-count-password-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .password-manager-logo {
-  height: 90px;
+  height: 60px;
   width: 200px;
+}
+
+.display-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f8fafc;
+}
+
+.nopassword-img {
+  height: 250px;
+  width: 300px;
 }
 
 .password-manager-image {
@@ -94,3 +152,5 @@ button {
   padding-top: 50px;
   padding-left: 80px;
 }
+
+
